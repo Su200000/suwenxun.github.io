@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>python</title><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/normalize/3.0.3/normalize.min.css"><link rel="stylesheet" type="text/css" href="/css/carbon.css"><script defer="defer" src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script><script defer="defer" src="//cdn.jsdelivr.net/jquery.pjax/1.9.5/jquery.pjax.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.css" type="text/css" media="screen"><script defer="defer" type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script>var performFancybox = true;</script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/katex/0.5.0/katex.min.css"><script async="async" type="text/javascript" src="//cdn.jsdelivr.net/katex/0.5.0/katex.min.js"></script><script async="async" type="text/javascript" src="//cdn.jsdelivr.net/katex/0.5.0/contrib/auto-render.min.js"></script><script>var doRenderMath = 'katex';</script><script defer="defer" src="/js/carbon.js"></script><meta name="generator" content="Hexo 4.2.0"></head><body><div id="container"><div id="banner"><h1 id="site-title"><a href="/">何不秉烛夜读</a></h1><p id="site-subtitle"></p></div><div id="content"><div class="meta"><h2 class="article-title"><a href="/2020/03/19/python">python</a></h2><div class="article-date"><a href="javascript:void(0);" class="extra-switch">2020-03-19</a></div></div><div class="extra"><span class="Tags">Tags: None.</span></div><div class="extra"><span class="Categories">Categories: None.</span></div><div class="article-content"><div class="gallery"></div><style>
+</style>
+
+<h3 id="语言和元素"><a href="#语言和元素" class="headerlink" title="语言和元素"></a>语言和元素</h3><h4 id="变量和类型"><a href="#变量和类型" class="headerlink" title="变量和类型"></a>变量和类型</h4><ol>
+<li><p>整型：Python中可以处理任意大小的整数（Python2.x中有int和long两种类型的整数，但这种区分对Python来说意义不大，因此在Python3.x中整数只有int这一种了），而且支持二进制（如<code>0b100</code>，换算成十进制是4）、八进制（如<code>0o100</code>，换算成十进制是64）、十进制（<code>100</code>）和十六进制（<code>0x100</code>，换算成十进制是256）的表示法。</p>
+</li>
+<li><p>变量命名：</p>
+</li>
+</ol>
+<ul>
+<li><p>硬性规则：</p>
+</li>
+<li><p>变量名由字母（广义的Unicode字符，不包括特殊字符）、数字和下划线构成，数字不能开头</p>
+</li>
+<li><p>大小写敏感 A≠a</p>
+</li>
+<li><p>注意与系统保留字符串的冲突</p>
+<p>-<br>PEP 8要求</p>
+</li>
+<li><p>用小写字母拼写，多个单词用下划线连接。</p>
+</li>
+<li><p>受保护的实例属性用单个下划线开头</p>
+</li>
+<li><p>私有的实例属性用两个下划线开头</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a = <span class="number">321</span></span><br><span class="line"></span><br><span class="line">b = <span class="number">123</span></span><br><span class="line"></span><br><span class="line">print(a + b) <span class="comment">#加法</span></span><br><span class="line"></span><br><span class="line">print(a - b) <span class="comment">#减法</span></span><br><span class="line"></span><br><span class="line">print(a * b)</span><br><span class="line"></span><br><span class="line">print(a / b)<span class="comment">#除法</span></span><br><span class="line"></span><br><span class="line">print(a // b)<span class="comment">#取整（向下取整）</span></span><br><span class="line"></span><br><span class="line">print(a % b)<span class="comment">#取模（返回除法的余数）</span></span><br><span class="line"></span><br><span class="line">print(a ** b)<span class="comment">#平方</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">'''type()'''</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">b = <span class="number">12.345</span></span><br><span class="line"></span><br><span class="line">c = <span class="number">1</span> + <span class="number">5j</span></span><br><span class="line"></span><br><span class="line">d = <span class="string">'hello, world'</span></span><br><span class="line"></span><br><span class="line">e = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">print(type(a)) <span class="comment"># &lt;class 'int'&gt;</span></span><br><span class="line"></span><br><span class="line">print(type(b)) <span class="comment"># &lt;class 'float'&gt;</span></span><br><span class="line"></span><br><span class="line">print(type(c)) <span class="comment"># &lt;class 'complex'&gt;</span></span><br><span class="line"></span><br><span class="line">print(type(d)) <span class="comment"># &lt;class 'str'&gt;</span></span><br><span class="line"></span><br><span class="line">print(type(e)) <span class="comment"># &lt;class 'bool'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>对数据类型进行转换</p>
+<ol>
+<li><p><code>int()</code>：将一个数值或字符串转换成整数，可以指定进制。</p>
+</li>
+<li><p><code>float()</code>：将一个字符串转换成浮点数。</p>
+</li>
+<li><p><code>str</code>：将指定的对象转换成字符串形式，可以指定编码。</p>
+</li>
+<li><p><code>chr</code>:将整数转化为编码对应的字符串</p>
+</li>
+<li><p><code>ord</code>:将字符串（一个字符）转换成对应的编码（整数）。</p>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">使用input()函数获取键盘输入(字符串)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">使用int()函数将输入的字符串转换成整数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">使用print()函数输出带占位符的字符串</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">a = int(input(<span class="string">'a = '</span>))</span><br><span class="line"></span><br><span class="line">b = int(input(<span class="string">'b = '</span>))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d + %d = %d'</span> % (a, b, a + b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d - %d = %d'</span> % (a, b, a - b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d * %d = %d'</span> % (a, b, a * b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d / %d = %f'</span> % (a, b, a / b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d // %d = %d'</span> % (a, b, a // b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d %% %d = %d'</span> % (a, b, a % b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d ** %d = %d'</span> % (a, b, a ** b))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上面的print函数中输出的字符串使用了占位符语法，其中<code>%d</code>是整数的占位符，<code>%f</code>是小数的占位符，<code>%%</code>表示百分号（因为百分号代表了占位符，所以带占位符的字符串中要表示百分号必须写成<code>%%</code>），字符串之后的<code>%</code>后面跟的变量值会替换掉占位符然后输出到终端中，运行上面的程序，看看程序执行结果就明白啦</p>
+</blockquote>
+<h4 id="Python运算符"><a href="#Python运算符" class="headerlink" title="Python运算符"></a>Python运算符</h4><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[]</code>  <code>[:]</code></td>
+<td align="left">切片</td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td align="left">指数</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;``&lt;&lt;</code></td>
+<td align="left">左移右移</td>
+</tr>
+<tr>
+<td><code>=</code>  <code>!=</code></td>
+<td align="left">等于 不等于</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</div><nav class="pagination"><a id="right-navigator" href="/2020/03/18/The_first_blog/">The_first_blog</a></nav></div><nav id="footer"><ul id="footer-links"><li><a href="/about">About</a></li><li><a href="/archives">Archives</a></li><li><a href="/atom.xml">RSS</a></li><li><a href="https://icylogic.net" target="_blank" rel="noopener" class="out-site">Theme.Carbon</a></li><li><a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener" class="out-site">Hexo</a></li></ul></nav></div></body></html>
