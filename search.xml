@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>python</title>
+    <url>/2020/03/19/python/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<blockquote>
+<p>不知道写什么东西,就先把python笔记搬运上来</p>
+</blockquote>
+<h3 id="语言和元素"><a href="#语言和元素" class="headerlink" title="语言和元素"></a>语言和元素</h3><h4 id="变量和类型"><a href="#变量和类型" class="headerlink" title="变量和类型"></a>变量和类型</h4><ol>
+<li><p>整型：Python中可以处理任意大小的整数（Python2.x中有int和long两种类型的整数，但这种区分对Python来说意义不大，因此在Python3.x中整数只有int这一种了），而且支持二进制（如<code>0b100</code>，换算成十进制是4）、八进制（如<code>0o100</code>，换算成十进制是64）、十进制（<code>100</code>）和十六进制（<code>0x100</code>，换算成十进制是256）的表示法。</p>
+</li>
+<li><p>变量命名：</p>
+</li>
+</ol>
+<ul>
+<li><p>硬性规则：</p>
+</li>
+<li><p>变量名由字母（广义的Unicode字符，不包括特殊字符）、数字和下划线构成，数字不能开头</p>
+</li>
+<li><p>大小写敏感 A≠a</p>
+</li>
+<li><p>注意与系统保留字符串的冲突</p>
+<p>-<br>PEP 8要求</p>
+</li>
+<li><p>用小写字母拼写，多个单词用下划线连接。</p>
+</li>
+<li><p>受保护的实例属性用单个下划线开头</p>
+</li>
+<li><p>私有的实例属性用两个下划线开头</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">a = <span class="number">321</span></span><br><span class="line"></span><br><span class="line">b = <span class="number">123</span></span><br><span class="line"></span><br><span class="line">print(a + b) <span class="comment">#加法</span></span><br><span class="line"></span><br><span class="line">print(a - b) <span class="comment">#减法</span></span><br><span class="line"></span><br><span class="line">print(a * b)</span><br><span class="line"></span><br><span class="line">print(a / b)<span class="comment">#除法</span></span><br><span class="line"></span><br><span class="line">print(a // b)<span class="comment">#取整（向下取整）</span></span><br><span class="line"></span><br><span class="line">print(a % b)<span class="comment">#取模（返回除法的余数）</span></span><br><span class="line"></span><br><span class="line">print(a ** b)<span class="comment">#平方</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">'''type()'''</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">b = <span class="number">12.345</span></span><br><span class="line"></span><br><span class="line">c = <span class="number">1</span> + <span class="number">5j</span></span><br><span class="line"></span><br><span class="line">d = <span class="string">'hello, world'</span></span><br><span class="line"></span><br><span class="line">e = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">print(type(a)) <span class="comment"># &lt;class 'int'&gt;</span></span><br><span class="line"></span><br><span class="line">print(type(b)) <span class="comment"># &lt;class 'float'&gt;</span></span><br><span class="line"></span><br><span class="line">print(type(c)) <span class="comment"># &lt;class 'complex'&gt;</span></span><br><span class="line"></span><br><span class="line">print(type(d)) <span class="comment"># &lt;class 'str'&gt;</span></span><br><span class="line"></span><br><span class="line">print(type(e)) <span class="comment"># &lt;class 'bool'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>对数据类型进行转换</p>
+<ol>
+<li><p><code>int()</code>：将一个数值或字符串转换成整数，可以指定进制。</p>
+</li>
+<li><p><code>float()</code>：将一个字符串转换成浮点数。</p>
+</li>
+<li><p><code>str</code>：将指定的对象转换成字符串形式，可以指定编码。</p>
+</li>
+<li><p><code>chr</code>:将整数转化为编码对应的字符串</p>
+</li>
+<li><p><code>ord</code>:将字符串（一个字符）转换成对应的编码（整数）。</p>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">使用input()函数获取键盘输入(字符串)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">使用int()函数将输入的字符串转换成整数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">使用print()函数输出带占位符的字符串</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">a = int(input(<span class="string">'a = '</span>))</span><br><span class="line"></span><br><span class="line">b = int(input(<span class="string">'b = '</span>))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d + %d = %d'</span> % (a, b, a + b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d - %d = %d'</span> % (a, b, a - b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d * %d = %d'</span> % (a, b, a * b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d / %d = %f'</span> % (a, b, a / b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d // %d = %d'</span> % (a, b, a // b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d %% %d = %d'</span> % (a, b, a % b))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'%d ** %d = %d'</span> % (a, b, a ** b))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上面的print函数中输出的字符串使用了占位符语法，其中<code>%d</code>是整数的占位符，<code>%f</code>是小数的占位符，<code>%%</code>表示百分号（因为百分号代表了占位符，所以带占位符的字符串中要表示百分号必须写成<code>%%</code>），字符串之后的<code>%</code>后面跟的变量值会替换掉占位符然后输出到终端中，运行上面的程序，看看程序执行结果就明白啦</p>
+</blockquote>
+<blockquote>
+<p> 除了<code>int</code> 和 <code>float</code>，Python 还支持其它数字类型，例如 Decimal 和 Fraction。Python 还内建支持 复数 ，使用后缀<code>j</code> 或<code>J</code>表示虚数部分（例如，<code>3+5j</code>）。</p>
+</blockquote>
+<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><p>Python 也提供了可以通过几种不同方式表示的字符串。它们可以用单引号 <code>&#39;&#39;</code>或双引号 <code>&quot;...&quot;</code>标识 。\ 可以用来转义引号:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'doesn\'t'</span>  <span class="comment"># use \' to escape the single quote...</span></span><br><span class="line"><span class="string">'spam eggs'</span>  <span class="comment"># single quotes</span></span><br></pre></td></tr></table></figure>
+
+<p>如果前面有<code>\</code>的特殊字符, 用原始字符串,并在其前面加个<code>r</code></p>
+<p>字符串文本能够分成多行。一种方法是使用三引号<code>&#39;&#39;&#39;  &#39;&#39;&#39;</code> 或者是 <code>&quot;&quot;&quot;&quot;  &quot;&quot;&quot;&quot;</code></p>
+<p>字符串可以用<code>+</code> 粘在一起,用 <code>*</code> 表示重复的:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 3 times 'un', followed by 'ium'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">3</span> * <span class="string">'un'</span> + <span class="string">'ium'</span></span><br><span class="line"><span class="string">'unununium'</span></span><br></pre></td></tr></table></figure>
+
+<p>相邻的两个字符串文本自动连接在一起:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'py'</span><span class="string">'thon'</span></span><br><span class="line">...<span class="string">'python'</span></span><br><span class="line"><span class="comment">#它只用于两个字符串文本，不能用于字符串表达式:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>prefix = <span class="string">'Py'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>prefix <span class="string">'thon'</span>  <span class="comment"># can't concatenate a variable and a string literal</span></span><br><span class="line">  ...</span><br><span class="line">SyntaxError: invalid syntax</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="string">'un'</span> * <span class="number">3</span>) <span class="string">'ium'</span></span><br><span class="line">  ...</span><br><span class="line">SyntaxError: invalid syntax</span><br><span class="line"><span class="comment">#如果你想连接多个变量或者连接一个变量和一个字符串文本，使用 +:</span></span><br></pre></td></tr></table></figure>
+
+<p>字符串也可以被截取(<strong>检索</strong>)。<u><strong>字符串的第一个字符索引为 0</strong></u> 。Python没有单独的字符类型；一个字符就是一个简单的长度为1的字符串。:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>word = <span class="string">'Python'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">0</span>]  <span class="comment"># character in position 0</span></span><br><span class="line"><span class="string">'P'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">5</span>]  <span class="comment"># character in position 5</span></span><br><span class="line"><span class="string">'n'</span></span><br></pre></td></tr></table></figure>
+
+<p>字符串的索引可以是负数, 即从右边开始算. </p>
+<p><strong>注意</strong>: 0=-0 所以字符串[-0]仍是左边第一个; 右边第一个是[-1]</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">-1</span>]  <span class="comment"># last character</span></span><br><span class="line"><span class="string">'n'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">-2</span>]  <span class="comment"># second-last character</span></span><br><span class="line"><span class="string">'o'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">-6</span>]</span><br><span class="line"><span class="string">'P'</span></span><br></pre></td></tr></table></figure>
+
+<p>此外,字符串还支持<strong>切片</strong>操作</p>
+<p><strong>注意</strong>，包含起始的字符，不包含末尾的字符。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[:<span class="number">2</span>] + word[<span class="number">2</span>:]</span><br><span class="line"><span class="string">'Python'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[:<span class="number">4</span>] + word[<span class="number">4</span>:]</span><br><span class="line"><span class="string">'Python'</span></span><br></pre></td></tr></table></figure>
+
+<p>切片的索引有非常有用的默认值；省略的第一个索引默认为零，省略的第二个索引默认为切片的字符串的大小</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[:<span class="number">2</span>]  <span class="comment"># character from the beginning to position 2 (excluded)</span></span><br><span class="line"><span class="string">'Py'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">4</span>:]  <span class="comment"># characters from position 4 (included) to the end</span></span><br><span class="line"><span class="string">'on'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">-2</span>:] <span class="comment"># characters from the second-last (included) to the end</span></span><br><span class="line"><span class="string">'on'</span></span><br></pre></td></tr></table></figure>
+
+<p>有个办法可以很容易地记住切片的工作方式：切片时的索引是在两个字符 <em>之间</em> 。左边第一个字符的索引为 0，而长度为 <em>n</em> 的字符串其最后一个字符的右界索引为 <em>n</em>。例如:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"> +---+---+---+---+---+---+</span><br><span class="line"> | P | y | t | h | o | n |</span><br><span class="line"> +---+---+---+---+---+---+</span><br><span class="line"> <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span>   <span class="number">5</span>   <span class="number">6</span></span><br><span class="line"><span class="number">-6</span>  <span class="number">-5</span>  <span class="number">-4</span>  <span class="number">-3</span>  <span class="number">-2</span>  <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+<p>文本中的第一行数字给出字符串中的索引点 0…6。第二行给出相应的负索引。切片是从 <em>i</em> 到 <em>j</em> 两个数值标示的边界之间的所有字符。</p>
+<p>对于非负索引，如果上下都在边界内，切片长度就是两个索引之差。例如，<code>word[1:3]</code> 是 2 。</p>
+<p>一个过大的索引值(即下标值大于字符串实际长度)将被字符串实际长度所代替，当上边界比下边界大时(即切片左值大于右值)就返回空字符串:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">4</span>:<span class="number">42</span>]</span><br><span class="line"><span class="string">'on'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#42被右界6代替了</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">42</span>:]</span><br><span class="line"><span class="string">''</span></span><br></pre></td></tr></table></figure>
+
+<p>Python字符串不可以被更改 — 它们是 <a href="https://docs.python.org/3/glossary.html#term-immutable" target="_blank" rel="noopener">不可变的</a> 。因此，赋值给字符串索引的位置会导致错误:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">0</span>] = <span class="string">'J'</span></span><br><span class="line">  ...</span><br><span class="line">TypeError: <span class="string">'str'</span> object does <span class="keyword">not</span> support item assignment</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[<span class="number">2</span>:] = <span class="string">'py'</span></span><br><span class="line">  ...</span><br><span class="line">TypeError: <span class="string">'str'</span> object does <span class="keyword">not</span> support item assignment</span><br></pre></td></tr></table></figure>
+
+<p>如果需要新的字符串或是改变字符串,应该建立一个新的字符串</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'J'</span> + word[<span class="number">1</span>:]</span><br><span class="line"><span class="string">'Jython'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word[:<span class="number">2</span>] + <span class="string">'py'</span></span><br><span class="line"><span class="string">'Pypy'</span></span><br></pre></td></tr></table></figure>
+
+<p>python 内置函数 <code>len()</code> 返回字符串的长度</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'supercalifragilisticexpialidocious'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(s)</span><br><span class="line"><span class="number">34</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h5><p>Python 有几个 <em>复合</em> 数据类型，用于表示其它的值。最通用的是 <em>list</em> (列表) ，它可以写作中括号之间的一列逗号分隔的值。列表的元素不必是同一类型:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">prime_number = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>,<span class="string">'19'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>列表和字符串一样,有索引和切片</p>
+<p>所有的切片操作都会返回一个包含请求的元素的新列表。这意味着下面的切片操作返回列表一个新的（浅）拷贝副本:</p>
+<p>列表和字符串一样,支持连接的操作</p>
+<p>列表是可变的,它允许修改元素</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">prime_number[<span class="number">-1</span>] = <span class="number">19</span></span><br></pre></td></tr></table></figure>
+
+<p><code>append()</code> 方法, 用来在列表的末尾添加新的元素</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">prime_number.append(<span class="number">23</span>)</span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>]</span><br></pre></td></tr></table></figure>
+
+<p>也可以对切片赋值，此操作可以改变列表的尺寸，或清空它:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">prime_number[<span class="number">-2</span>:] = []</span><br><span class="line">[out]:  [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>]</span><br></pre></td></tr></table></figure>
+
+<p>内置函数 len() 同样适用于列表:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">len(prime_number)</span><br><span class="line">Out[<span class="number">29</span>]: <span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<p>允许嵌套列表(创建一个包含其它列表的列表)，例如:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = [a, n]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">[[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x[<span class="number">0</span>]</span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="string">'b'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Python运算符"><a href="#Python运算符" class="headerlink" title="Python运算符"></a>Python运算符</h4><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[]</code>  <code>[:]</code></td>
+<td align="left">切片</td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td align="left">指数</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code> <code>&lt;&lt;</code></td>
+<td align="left">左移右移</td>
+</tr>
+<tr>
+<td><code>=</code>  <code>!=</code></td>
+<td align="left">等于 不等于</td>
+</tr>
+<tr>
+<td><code>*</code> <code>/</code> <code>%</code> <code>//</code></td>
+<td align="left">乘，除，取模，整除</td>
+</tr>
+<tr>
+<td><code>&lt;=</code> <code>&gt;=</code> <code>&lt;</code> <code>&gt;</code></td>
+<td align="left">小于等于、大于等于、小于、大于</td>
+</tr>
+<tr>
+<td><code>==</code> <code>!=</code></td>
+<td align="left">等于、不等于</td>
+</tr>
+<tr>
+<td><code>is</code> <code>is not</code></td>
+<td align="left">身份运算符</td>
+</tr>
+<tr>
+<td><code>in</code> <code>not in</code></td>
+<td align="left">成员运算符</td>
+</tr>
+<tr>
+<td><code>not</code> <code>or</code> <code>and</code></td>
+<td align="left">逻辑运算符</td>
+</tr>
+<tr>
+<td><code>+=</code> <code>-=</code> <code>*=</code></td>
+<td align="left">复合赋值运算符</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">''''复合逻辑运算符举例'''</span></span><br><span class="line">a = <span class="number">5</span></span><br><span class="line">b = <span class="number">3</span></span><br><span class="line">a += b <span class="comment">#a = a+b</span></span><br><span class="line">a *= a+<span class="number">2</span> <span class="comment">#a = a * (a+2)</span></span><br><span class="line"></span><br><span class="line">print(a) <span class="comment">#80</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'''比较/逻辑/身份运算符'''</span></span><br><span class="line"></span><br><span class="line">flag0 = <span class="number">1</span> == <span class="number">1</span></span><br><span class="line">flag1 = <span class="number">3</span> &gt; <span class="number">2</span></span><br><span class="line">flag2 = <span class="number">2</span> &lt; <span class="number">1</span></span><br><span class="line">flag3 = flag1 <span class="keyword">and</span> flag2</span><br><span class="line">flag4 = flag1 <span class="keyword">or</span> flag2</span><br><span class="line">flag5 = <span class="keyword">not</span> (<span class="number">1</span> != <span class="number">2</span>)</span><br><span class="line">print(<span class="string">'flag0 ='</span>, flag0) <span class="comment"># flag0 = True</span></span><br><span class="line">print(<span class="string">'flag1 ='</span>, flag1) <span class="comment"># flag1 = True</span></span><br><span class="line">print(<span class="string">'flag2 ='</span>, flag2) <span class="comment"># flag2 = False</span></span><br><span class="line">print(<span class="string">'flag3 ='</span>, flag3) <span class="comment"># flag3 = False</span></span><br><span class="line">print(<span class="string">'flag4 ='</span>, flag4) <span class="comment"># flag4 = True</span></span><br><span class="line">print(<span class="string">'flag5 ='</span>, flag5) <span class="comment"># flag5 = False</span></span><br><span class="line">print(flag1 <span class="keyword">is</span> <span class="literal">True</span>) <span class="comment"># True</span></span><br><span class="line">print(flag2 <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">False</span>) <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#练习</span></span><br><span class="line"><span class="comment">#练习1：华氏温度转换为摄氏温度。</span></span><br><span class="line"><span class="comment">#转换公式为：C=(F - 32) \div 1.8。</span></span><br><span class="line">f= float(input(<span class="string">'请输入华氏度'</span>))</span><br><span class="line">c= (f<span class="number">-32</span>) / <span class="number">1.8</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'%s 华氏度等于 %d 摄氏度'</span>%(f,c))</span><br><span class="line"></span><br><span class="line"><span class="comment">#练习2 输入年份判断是不是闰年普通闰年:公历年份是4的倍数的，且不是100的倍数，为普通闰年。（如2004年就是闰年）；</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#世纪闰年:公历年份是整百数的，必须是400的倍数才是世纪闰年（如1900年不是世纪闰年，2000年是世纪闰年）</span></span><br><span class="line">year = int(input(<span class="string">'请输入年份'</span>))</span><br><span class="line">leap_year = ((year % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> year % <span class="number">100</span> !=<span class="number">0</span>) <span class="keyword">or</span> year % <span class="number">100</span> == <span class="number">0</span>)</span><br><span class="line">print(leap_year)</span><br></pre></td></tr></table></figure>
+
+<h6 id="先看一个简单的python程序"><a href="#先看一个简单的python程序" class="headerlink" title="先看一个简单的python程序"></a>先看一个简单的python程序</h6><p>斐波那契</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Fibonacci series: the sum of two elements defines the next</span></span><br><span class="line">a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> b &lt; <span class="number">100</span>:</span><br><span class="line">    print(b)</span><br><span class="line">    a , b = b , a+b</span><br><span class="line">...</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="number">21</span></span><br><span class="line"><span class="number">34</span></span><br><span class="line"><span class="number">55</span></span><br><span class="line"><span class="number">89</span></span><br><span class="line"></span><br><span class="line"><span class="string">'如果不想分行'</span></span><br><span class="line">a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"> <span class="keyword">while</span> b &lt; <span class="number">100</span>:</span><br><span class="line"> print(b,end=<span class="string">","</span>)<span class="comment">#也可以是其他字符串</span></span><br><span class="line"> a , b = b , a+b</span><br><span class="line"> ...</span><br><span class="line"> <span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">13</span>,<span class="number">21</span>,<span class="number">34</span>,<span class="number">55</span>,<span class="number">89</span>,</span><br></pre></td></tr></table></figure>
+
+<p>几个值得注意的地方:</p>
+<ul>
+<li><p><u>多重赋值:  变量赋值前，右边首先完成计算。右边的表达式从左到右计算。</u></p>
+</li>
+<li><p>循环 <em>体</em> 是 <em>缩进</em> 的：缩进是 Python 组织语句的方法。Python (还)不提供集成的行编辑功能，所以你要为每一个缩进行输入 TAB 或空格。</p>
+</li>
+<li><p>关键字<code>print()</code>语句输出给定表达式的值。它控制多个表达式和字符串输出为你想要字符串（就像我们在前面计算器的例子中那样）。</p>
+<p>字符串打印时不用引号包围，每两个子项之间插入空间，所以你可以把格式弄得很漂亮</p>
+</li>
+</ul>
+<h3 id="Python相关控制"><a href="#Python相关控制" class="headerlink" title="Python相关控制"></a>Python相关控制</h3><h4 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h4><h5 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h5><p>一条一条语句顺序执行，这种代码结构通常称之为顺序结构。然而仅有顺序结构并不能解决所有的问题，比如我们设计一个游戏，游戏第一关的通关条件是玩家获得1000分，那么在完成本局游戏后，我们要根据玩家得到分数来决定究竟是进入第二关，还是告诉玩家“Game Over”，这里就会产生两个分支，而且这两个分支只有一个会被执行。类似的场景还有很多，我们将这种结构称之为“分支结构”或“选择结构”。</p>
+<h5 id="if语句的使用"><a href="#if语句的使用" class="headerlink" title="if语句的使用"></a>if语句的使用</h5><p>在Python中，要构造分支结构可以使用<code>if</code>、<code>elif</code>和<code>else</code>关键字。所谓<strong>关键字</strong>就是有特殊含义的单词，像<code>if</code>和<code>else</code>就是专门用于构造分支结构的关键字，很显然你不能够使用它作为变量名（事实上，用作其他的标识符也是不可以）。</p>
+<blockquote>
+<p>Python中没有用花括号来构造代码块而是使用了缩进的方式来设置代码的层次结构，如果<code>if</code>条件成立的情况下需要执行多条语句，只要保持多条语句具有相同的缩进就可以了，换句话说连续的代码如果又保持了相同的缩进那么它们属于同一个代码块，相当于是一个执行的整体。</p>
+</blockquote>
+<p>当然如果要构造出更多的分支，可以使用<code>if…elif…else…</code>结构</p>
+<p>如:分段函数求值 </p>
+<p>$$<br>f(x) =\begin{cases}<br>3x-5 &amp;  (x&gt;1)\<br>x+2 &amp; (-1 \leq x \leq 1)\<br>5x+3 &amp; (x&lt;-1)<br>\end{cases}</p>
+<p>$$</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'''分段函数求值'''</span></span><br><span class="line">x = float (input(<span class="string">"x="</span>))</span><br><span class="line"><span class="keyword">if</span> x &gt; <span class="number">1</span>:</span><br><span class="line">    y = <span class="number">3</span> * x - <span class="number">5</span></span><br><span class="line"><span class="keyword">elif</span> y &lt; <span class="number">-1</span>:</span><br><span class="line">    y = <span class="number">5</span> * x + <span class="number">3</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    y = x + <span class="number">2</span></span><br><span class="line">print(<span class="string">'f(%s)的值为 %.10f'</span> % (x,y))</span><br></pre></td></tr></table></figure>
+
+<p>当然根据实际开发的需要，分支结构是可以嵌套的，例如判断是否通关以后还要根据你获得的宝物或者道具的数量对你的表现给出等级（比如点亮两颗或三颗星星），那么我们就需要在<code>if</code>的内部构造出一个新的分支结构，同理<code>elif</code>和<code>else</code>中也可以再构造新的分支，我们称之为嵌套的分支结构，也就是说上面的代码也可以写成下面的样子。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = float(input(<span class="string">'x = '</span>))</span><br><span class="line"><span class="keyword">if</span> x &gt; <span class="number">1</span>:</span><br><span class="line">    y = <span class="number">3</span> * x - <span class="number">5</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">if</span> x &gt;= <span class="number">-1</span>:</span><br><span class="line">        y = x + <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        y = <span class="number">5</span> * x + <span class="number">3</span></span><br><span class="line">print(<span class="string">'f(%.2f) = %.2f'</span> % (x, y))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'''练习'''</span></span><br><span class="line"><span class="comment">#判断输入的边长能否构成三角形，如果能则计算出三角形的周长和面积</span></span><br><span class="line"><span class="string">'海伦公式'</span></span><br><span class="line">a = float (input(<span class="string">"a="</span>))</span><br><span class="line">b = float (input(<span class="string">"b="</span>))</span><br><span class="line">c = float (input(<span class="string">"c="</span>))</span><br><span class="line"><span class="keyword">if</span> a + b &gt; c <span class="keyword">and</span> a + c &gt; b <span class="keyword">and</span> b+ c &gt; a:</span><br><span class="line">    print(<span class="string">'周长为 %s '</span> %(a + b + c))</span><br><span class="line">    p = (a + b + c) / <span class="number">2</span></span><br><span class="line">    area = (p * (p-a * (p-b) * (p-c)) ** <span class="number">0.5</span></span><br><span class="line">    print(<span class="string">'三角形的面积是 %s'</span> %(area))</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'abc不能构成三角形'</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h4><h5 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h5><p>如果在程序中我们需要重复的执行某条或某些指令，例如用程序控制机器人踢足球，如果机器人持球而且还没有进入射门范围，那么我们就要一直发出让机器人向球门方向奔跑的指令。当然你可能已经注意到了，刚才的描述中不仅仅有需要重复的动作，还需要用到上一章讲的分支结构。再举一个简单的例子，我们要实现一个每隔1秒中在屏幕上打印一次”hello, world”并持续打印一个小时的程序，我们肯定不能够直接把<code>print(&#39;hello, world&#39;)</code>这句代码写3600遍，如果真的要这样做，那么编程的工作就太无聊乏味了。因此，我们还需要了解一下循环结构，有了循环结构我们就可以轻松的控制某件事或者某些事重复、重复、再重复的去执行。</p>
+<p>在Python中构造循环结构有两种做法，一种是<code>for-in</code>循环，一种是<code>while</code>循环</p>
+<h5 id="for-in-循环"><a href="#for-in-循环" class="headerlink" title="for-in 循环"></a>for-in 循环</h5><p>如果明确的知道循环执行的次数或者要对一个容器进行迭代（后面会讲到），那么我们推荐使用<code>for-in</code>循环，例如下面代码中计算1~100求和的结果</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sum = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><code>range()</code> 函数,它生成一个等差级数链表:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line"><span class="meta">... </span>    print(i)</span><br><span class="line">...</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>生成了一个包含 10 个值的链表，它用链表的索引值填充了这个长度为 10 的列表，所生成的链表中不包括范围中的结束值。也可以让 <code>range()</code> 操作从另一个数值开始，或者可以指定一个不同的步进值（甚至是负数，有时这也被称为 “步长”）:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">range(<span class="number">5</span>, <span class="number">10</span>)</span><br><span class="line">   <span class="number">5</span> through <span class="number">9</span></span><br><span class="line"></span><br><span class="line">range(<span class="number">0</span>, <span class="number">10</span>, <span class="number">3</span>)</span><br><span class="line">   <span class="number">0</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span></span><br><span class="line"></span><br><span class="line">range(<span class="number">-10</span>, <span class="number">-100</span>, <span class="number">-30</span>)</span><br><span class="line">  <span class="number">-10</span>, <span class="number">-40</span>, <span class="number">-70</span></span><br></pre></td></tr></table></figure>
+
+<p>需要迭代链表索引的话，如下所示结合使 用<code>len()</code> 和 <code>range()</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="string">'Mary'</span>, <span class="string">'had'</span>, <span class="string">'a'</span>, <span class="string">'little'</span>, <span class="string">'lamb'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line"><span class="meta">... </span>    print(i, a[i])</span><br><span class="line">...</span><br><span class="line"><span class="number">0</span> Mary</span><br><span class="line"><span class="number">1</span> had</span><br><span class="line"><span class="number">2</span> a</span><br><span class="line"><span class="number">3</span> little</span><br><span class="line"><span class="number">4</span> lamb</span><br></pre></td></tr></table></figure>
+
+<p>参见 <a href="https://www.runoob.com/manual/pythontutorial3/docs/html/datastructures.html#tut-loopidioms" target="_blank" rel="noopener">循环技巧</a>。学习更多操作</p>
+<h5 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a><code>while</code> 循环</h5><p>如果要构造不知道具体循环次数的循环结构，我们推荐使用<code>while</code>循环。<code>while</code>循环通过一个能够产生或转换出<code>bool</code>值的表达式来控制循环，表达式的值为<code>True</code>循环继续，表达式的值为<code>False</code>循环结束。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">猜数字游戏</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">answer = random.randint(<span class="number">0</span>,<span class="number">100</span>)</span><br><span class="line">counter = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    counter += <span class="number">1</span> </span><br><span class="line">    guess_number = int(input(<span class="string">'please input a int:'</span>))</span><br><span class="line">    <span class="keyword">if</span> guess_number &lt; answer :</span><br><span class="line">        print(<span class="string">'smaller than answer'</span>)</span><br><span class="line">    <span class="keyword">elif</span> guess_number &gt; answer:</span><br><span class="line">        print(<span class="string">'bigger than answer'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'right'</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'it takes %d times'</span>%(counter))</span><br><span class="line"></span><br><span class="line"><span class="string">'''上面的代码中使用了break关键字来提前终止循环，需要注意的是break只能终止它所在的那个循环，这一点在使用嵌套的循环结构（下面会讲到）需要引起注意。除了break之外，还有另一个关键字是continue，它可以用来放弃本次循环后续的代码直接让循环进入下一轮。'''</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Break-和-continue-语句-以及循环中的else字句"><a href="#Break-和-continue-语句-以及循环中的else字句" class="headerlink" title="Break 和 continue 语句,以及循环中的else字句"></a><code>Break</code> 和 <code>continue</code> 语句,以及循环中的else字句</h5><p><code>break</code> 语句用来跳出最近一级的 <code>for</code> 和 <code>while</code> 循环</p>
+<p>循环可以有一个<code>else</code> 子句, 在循环完整个列表(对于<code>for</code> )或者执行条件为false(对于<code>while</code>) 时执行,但循环被<code>break</code>终止后不会执行</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">2</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2</span>,n):</span><br><span class="line">        <span class="keyword">if</span> n % x == <span class="number">0</span>:</span><br><span class="line">            print(n,<span class="string">'equals'</span> , x ,<span class="string">'*'</span>, n//x)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'%d is a prime number'</span> %(n))</span><br><span class="line"></span><br><span class="line"> <span class="string">'''注意 else 是 属于for 循环中的,而不是 if 语句'''</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> <span class="keyword">is</span> a prime number</span><br><span class="line"><span class="number">3</span> <span class="keyword">is</span> a prime number</span><br><span class="line"><span class="number">4</span> equals <span class="number">2</span> * <span class="number">2</span></span><br><span class="line"><span class="number">4</span> <span class="keyword">is</span> a prime number</span><br><span class="line"><span class="number">5</span> <span class="keyword">is</span> a prime number</span><br><span class="line"><span class="number">6</span> equals <span class="number">2</span> * <span class="number">3</span></span><br><span class="line"><span class="number">6</span> equals <span class="number">3</span> * <span class="number">2</span></span><br><span class="line"><span class="number">6</span> <span class="keyword">is</span> a prime number</span><br><span class="line"><span class="number">7</span> <span class="keyword">is</span> a prime number</span><br><span class="line"><span class="number">8</span> equals <span class="number">2</span> * <span class="number">4</span></span><br><span class="line"><span class="number">8</span> equals <span class="number">4</span> * <span class="number">2</span></span><br><span class="line"><span class="number">8</span> <span class="keyword">is</span> a prime number</span><br><span class="line"><span class="number">9</span> equals <span class="number">3</span> * <span class="number">3</span></span><br><span class="line"><span class="number">9</span> <span class="keyword">is</span> a prime number</span><br></pre></td></tr></table></figure>
+
+<p>与循环一起使用时，<code>else</code> 子句与 <code>try</code>语句的 <code>else</code> 子句比与 <code>if</code>语句的具有更多的共同点</p>
+<ul>
+<li><p><code>try</code> 语句的<code>else</code> 子句 在句末出现异常时运行</p>
+</li>
+<li><p>循环的 <code>else</code> 语句 在句末出现<code>break</code>时运行</p>
+</li>
+</ul>
+<p><code>continue</code>语句表示循环继续下一次迭代</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">2</span>,<span class="number">11</span>):</span><br><span class="line">    <span class="keyword">if</span> num % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'found a even number %d'</span>%(num))</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(<span class="string">'found a number %d'</span>%(num))</span><br></pre></td></tr></table></figure>
+
+<h5 id="pass-语句"><a href="#pass-语句" class="headerlink" title="pass  语句"></a><code>pass</code>  语句</h5><p><code>pass</code> 什么也不做, 用于语法上个必须要有什么于语句,但程序什么都不做的场合</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> true:</span><br><span class="line">    <span class="keyword">pass</span><span class="comment"># busy- wait for keyboard interrupt</span></span><br><span class="line"></span><br><span class="line"><span class="string">'''通常用于创建最小结构的类'''</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyEmptyClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="string">'''或者用来做函数或者控制体的占位符'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initlog</span><span class="params">(*args)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'练习'</span></span><br><span class="line"><span class="comment">#素数的判断</span></span><br><span class="line">num = int(input(<span class="string">'please input a int '</span>))</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line">flag = <span class="number">0</span></span><br><span class="line">end = int(sqrt(num))</span><br><span class="line">is_prime = <span class="literal">True</span> </span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2</span>,end+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> num % end == <span class="number">0</span>:</span><br><span class="line">        is_prime = <span class="literal">False</span> </span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="keyword">if</span> is_prime <span class="keyword">and</span> num != <span class="number">1</span> :</span><br><span class="line">        print(num,<span class="string">'这是一个素数'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">        print(num,<span class="string">'这不是素数'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h3><ul>
+<li><p>关键字<code>def</code> 引入一个函数的定义.在其后面必须跟有函数名形式和包括阐述的圆括号. 函数体的语句从下一行刚开始,且必须是缩进的.</p>
+</li>
+<li><p>函数体的第一案语句是可选的字符串文本,这个字符串是函数的文档字符串 (docstring) </p>
+</li>
+<li><p>函数会调用局部变量生成搞一个新的符号.所有的函数中的变量赋值都是将值存储在局部符号表.变量首先在局部符号中查找,然后是包含 函数的局部符号表,然后是全局符号表,最后是内置名字表.因此,全局变量不能在函数中直接赋值</p>
+</li>
+<li><p>函数引用的实际参数在函数调用时引入局部符号表，因此，实参总是<strong>传值调用</strong>(这里的值是对一个对象的引用,而不是该兑现高的值.  一个函数被另一个函数调用时，一个新的局部符号表在调用过程中被创建。</p>
+</li>
+<li><p>一个函数定义会在当前符号表内引入函数名。函数名指代的值（即函数体）有一个被 Python 解释器认定为 <em>用户自定义函数</em> 的类型。 这个值可以赋予其他的名字（即变量名），然后它也可以被当做函数使用。这可以作为通用的重命名机制:</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>course</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>The first article</title>
+    <url>/2020/03/18/The-first-article/</url>
+    <content><![CDATA[<p>  现在是2020年3月19日，这是一个礼拜四。我本该认真的上统计学的网课，但老师缓慢的节奏让我毫无兴致。</p>
+<pre><code>不知从哪来的热情让我突然捣鼓起了自己博客。在今日回首昨日，这无疑是一个错误的决定，因为我并没有什么宝贵的技术可分享，更没有可持续输出的观点。可能这只是被困在家，无聊到发慌的大学生一时兴起的拙作。</code></pre><blockquote>
+<p>夫天地者，万物之逆旅也；光阴者，百代之过客也。而浮生若梦，为欢几何？古人秉烛夜游，良有以也。况阳春召我以烟景，大块假我以文章。会桃花之芳园，序天伦之乐事。群季俊秀，皆为惠连；吾人咏歌，独惭康乐。幽赏未已，高谈转清。开琼筵以坐花，飞羽觞而醉月。不有佳咏，何伸雅怀？如诗不成，罚依金谷酒数。</p>
+</blockquote>
+<pre><code>我一直对李白的这篇`《春夜宴从弟桃花园序》`喜爱有加，也许李白的秉烛夜游，其实和我的熬夜冲浪的差别也不大。
+
+无论如何，我都希望我花了一晚上捣鼓起来的博客，不要那么快的的变为时间上的沉没成本。希望自己能在活了20年之后，能够记下些什么东西，不用笔，用键盘也好，应该也不会有人会闲到看我写的这些琐事。
+
+这个网站就先这样吧，其他功能等我有空了再探索=-=</code></pre><h5 id="END"><a href="#END" class="headerlink" title="END"></a>END</h5>]]></content>
+      <tags>
+        <tag>about life</tag>
+      </tags>
+  </entry>
+</search>
