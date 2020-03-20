@@ -5,8 +5,10 @@
     <url>/2020/03/19/python/</url>
     <content><![CDATA[<p>[TOC]</p>
 <blockquote>
-<p>不知道写什么东西,就先把python笔记搬运上来</p>
+<p>不知道写什么东西,就先把python笔记搬运上来\</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="语言和元素"><a href="#语言和元素" class="headerlink" title="语言和元素"></a>语言和元素</h3><h4 id="变量和类型"><a href="#变量和类型" class="headerlink" title="变量和类型"></a>变量和类型</h4><ol>
 <li><p>整型：Python中可以处理任意大小的整数（Python2.x中有int和long两种类型的整数，但这种区分对Python来说意义不大，因此在Python3.x中整数只有int这一种了），而且支持二进制（如<code>0b100</code>，换算成十进制是4）、八进制（如<code>0o100</code>，换算成十进制是64）、十进制（<code>100</code>）和十六进制（<code>0x100</code>，换算成十进制是256）的表示法。</p>
 </li>
@@ -265,8 +267,11 @@
   <entry>
     <title>The first article</title>
     <url>/2020/03/18/The-first-article/</url>
-    <content><![CDATA[<p>  现在是2020年3月19日，这是一个礼拜四。我本该认真的上统计学的网课，但老师缓慢的节奏让我毫无兴致。</p>
-<pre><code>不知从哪来的热情让我突然捣鼓起了自己博客。在今日回首昨日，这无疑是一个错误的决定，因为我并没有什么宝贵的技术可分享，更没有可持续输出的观点。可能这只是被困在家，无聊到发慌的大学生一时兴起的拙作。</code></pre><blockquote>
+    <content><![CDATA[<pre><code>现在是2020年3月19日，这是一个礼拜四。</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>我本该认真的上统计学的网课，但老师缓慢的节奏让我毫无兴致。
+
+不知从哪来的热情让我突然捣鼓起了自己博客。在今日回首昨日，这无疑是一个错误的决定，因为我并没有什么宝贵的技术可分享，更没有可持续输出的观点。可能这只是被困在家，无聊到发慌的大学生一时兴起的拙作。</code></pre><blockquote>
 <p>夫天地者，万物之逆旅也；光阴者，百代之过客也。而浮生若梦，为欢几何？古人秉烛夜游，良有以也。况阳春召我以烟景，大块假我以文章。会桃花之芳园，序天伦之乐事。群季俊秀，皆为惠连；吾人咏歌，独惭康乐。幽赏未已，高谈转清。开琼筵以坐花，飞羽觞而醉月。不有佳咏，何伸雅怀？如诗不成，罚依金谷酒数。</p>
 </blockquote>
 <pre><code>我一直对李白的这篇`《春夜宴从弟桃花园序》`喜爱有加，也许李白的秉烛夜游，其实和我的熬夜冲浪的差别也不大。
